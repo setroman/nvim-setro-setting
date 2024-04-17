@@ -1,3 +1,4 @@
+-- Extension fugitive para esar el cliente git 
 return {
 	"tpope/vim-fugitive",
 	cmd = {"G","Git"},
