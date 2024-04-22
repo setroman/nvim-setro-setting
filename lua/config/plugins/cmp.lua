@@ -30,7 +30,7 @@ function M.setup()
         behavior = cmp.ConfirmBehavior.Insert,
         select = true,
       },
-      ["<C-Space>"] = cmp.mapping.complete(),
+      ["<c-space>"] = cmp.mapping.complete(),
     },
     sources = {
       { name = "nvim_lsp" },
