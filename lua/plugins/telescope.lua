@@ -5,7 +5,7 @@
 -- Set keymap
 local keys = {
     {
-      "<leader>pp",
+      "<leader>gf",
       function()
         require("telescope.builtin").git_files({ show_untracked = true })
       end,
@@ -40,7 +40,7 @@ local keys = {
       desc = "Buffers",
     },
     {
-      "<leader>rp",
+      "<leader>pp",
       function()
         require("telescope.builtin").find_files({
           prompt_title = "Plugins",
