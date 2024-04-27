@@ -46,6 +46,11 @@ local config = function ()
     on_attach = on_attach
   })
 
+  -- markdown config
+  lspconfig.marksman.setup({
+    on_attach = on_attach
+  })
+
   -- lua config
   lspconfig.lua_ls.setup({
     on_attach = on_attach,
