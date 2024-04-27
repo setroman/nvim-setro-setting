@@ -11,6 +11,7 @@
  - Tema de colores Kawagana
  - Cliente git 
  - Highlight Git [Coloreado y marcado de cambios en git]
+ - LSP config [gestor de configuraciones para los lsp]
  - Tree-sitter [Paeser y generador de arbol sintáctico]
  - nvim-cmp [Autocompletado]
  - telescope [manejador de listados]
