@@ -1,68 +1,43 @@
-return {
-  "nvim-telescope/telescope.nvim",
-  event = 'VeryLazy',
-  dependencies = {
-    "nvim-lua/plenary.nvim",
-    "nvim-telescope/telescope-file-browser.nvim",
-    {
-      'nvim-telescope/telescope-fzf-native.nvim',
-      build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build'
-    },
-    -- {
-    --   'nvim-telescope/telescope-fzf-native.nvim',
-    --   build = 'make'
-    -- }
-  },
-  opts = {
-    extensions = {
-      fzf = {
-        fuzzy = true,                   -- false will only do exact matching
-        override_generic_sorter = true, -- override the generic sorter
-        override_file_sorter = true,    -- override the file sorter
-        case_mode = "smart_case",       -- or "ignore_case" or "respect_case"
-        -- the default case_mode is "smart_case"
-      },
-    }
-  },
-  config = function(opts)
-    require('telescope').setup(opts)
-    require('telescope').load_extension('fzf')
-  end,
-  keys = {
+--  -------------------------------------
+-- | Telescope para el manejo de listas |
+-- -------------------------------------
+
+-- Set keymap
+local keys = {
     {
       "<leader>pp",
       function()
-        require('telescope.builtin').git_files({ show_untracked = true })
+        require("telescope.builtin").git_files({ show_untracked = true })
       end,
-      desc = "Telescope Git Files",
-    },
-    {
-      "<leader>pe",
-      function()
-        require("telescope.builtin").buffers()
-      end,
-      desc = "Telescope buffers",
+      desc = "Git Files",
     },
     {
       "<leader>gs",
       function()
         require("telescope.builtin").git_status()
       end,
-      desc = "Telescope Git status",
+      desc = "Git status",
     },
     {
       "<leader>gc",
       function()
         require("telescope.builtin").git_bcommits()
       end,
-      desc = "Telescope Git status",
+      desc = "Git status",
     },
     {
       "<leader>gb",
       function()
         require("telescope.builtin").git_branches()
       end,
-      desc = "Telescope Git branches",
+      desc = "Git branches",
+    },
+    {
+      "<leader>pb",
+      function()
+        require("telescope.builtin").buffers()
+      end,
+      desc = "Buffers",
     },
     {
       "<leader>rp",
@@ -86,23 +61,66 @@ return {
     {
       "<leader>pf",
       function()
-        require('telescope.builtin').find_files()
+        require("telescope.builtin").find_files()
       end,
-      desc = "Telescope Find Files",
+      desc = "Find Files",
+    },
+    {
+      "<leader>pg",
+      function()
+        require("telescope.builtin").live_grep()
+      end,
+      desc = "Live Grep",
     },
     {
       "<leader>ph",
       function()
         require("telescope.builtin").help_tags()
       end,
-      desc = "Telescope Help"
+      desc = "Help"
     },
     {
-      "<leader>bb",
+      "<leader>e",
       function()
         require("telescope").extensions.file_browser.file_browser({ path = "%:h:p", select_buffer = true })
       end,
-      desc = "Telescope file browser"
+      desc = "File Browser"
+    }
+}
+
+-- Set config
+local config =function (opts)
+    require("telescope").setup(opts)
+    require("telescope").load_extension("fzf")
+end
+
+-- return plugins telescope
+return {
+  "nvim-telescope/telescope.nvim",
+  event = "VeryLazy",
+  dependencies = {
+    "nvim-lua/plenary.nvim",
+    "nvim-telescope/telescope-file-browser.nvim",
+    {
+      "nvim-telescope/telescope-fzf-native.nvim",
+      build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build"
+    },
+    -- {
+    --   "nvim-telescope/telescope-fzf-native.nvim",
+    --   build = "make"
+    -- }
+  },
+  opts = {
+    extensions = {
+      fzf = {
+        fuzzy = true,                   -- false will only do exact matching
+        override_generic_sorter = true, -- override the generic sorter
+        override_file_sorter = true,    -- override the file sorter
+        case_mode = "smart_case",       -- or "ignore_case" or "respect_case"
+        -- the default case_mode is "smart_case"
+      },
     }
   },
+  config = config,
+  keys =keys,
 }
