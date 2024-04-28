@@ -1,12 +1,37 @@
-# Configuración personalizada de neovim 
+# nvim-setro-setting
 
-## Congiguración personal
+Configuración personalizada de neovim 😉
 
- - Numeración de reglones visible
- - Numeración relativa de los reglones
- - Tecla espacio como leader.
+## Características principales
+- Tema de colores ***Kanagawa***.
+- Cliente y resaltador ***git***.
+- Gestor de extenciones ***Lazy***.
+- Autocompletado con ***cmp***.
+- ***Telescope***.
 
-## Plugins
+## Requerimientos
+ - 
+## Instalación
+Dentro de la carpeta de configuración de neovim:
+
+- en windows: `cd  ~/AppData/Local/`
+- en linux: `cd ~/.config/`
+```
+> git clone https://github.com/setroman/nvim-setro-setting.git nvim
+```
+
+## Configuración básica
+
+- Muestra la ***numeración relativa*** de los reglones.
+- Empleo de la tecla de ***espacio*** como tecla ***leader***.
+- La tabulación genera dos espacios.
+
+## LSP incluidos
+- lua
+- typescript
+- markdown
+
+## Extenciones incluidas
 
  - Tema de colores Kawagana
  - Cliente git 
